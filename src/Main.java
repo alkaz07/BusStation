@@ -4,7 +4,29 @@ import java.util.Comparator;
 public class Main {
     public static void main(String[] args) {
        // task1();
-        example2();
+       // example2();
+        example3Stacked();
+    }
+
+    private static void example3Stacked() {
+        StackedBus bus = new StackedBus(999);
+        bus.load(new Passenger("Даша", 78, 45));
+        bus.load(new Passenger("Маша", 18, 55));
+        bus.load(new Passenger("Света", 45, 60));
+
+        System.out.println(bus);
+        //вытащим 1 пассажира
+        Passenger passenger = bus.getNextPassenger();
+        System.out.println("вышел "+passenger);
+        //добавим пассажира
+        bus.load(new Passenger("Коля", 30, 120));
+        System.out.println(bus);
+        //всем покинуть автобус
+        while (! bus.isEmpty()){
+            Passenger p = bus.getNextPassenger();
+            System.out.println("вышел "+p);
+        }
+        System.out.println(bus);
     }
 
     private static void example1() {
