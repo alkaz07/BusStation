@@ -3,6 +3,41 @@ import java.util.Comparator;
 
 public class Main {
     public static void main(String[] args) {
+       // task1();
+        example2();
+    }
+
+    private static void example1() {
+        ArrayList<Bus> buses = new ArrayList<>();
+        buses.add(new Bus(1111));
+        buses.add(new Bus(2222));
+
+        Passenger p1 = new Passenger("Иванов", 50, 79);
+
+        buses.get(0).load(p1);
+        buses.get(1).load(p1);   //продублировали ссылку
+
+    }
+
+    private static void example2() {
+        ArrayList<Bus> buses = new ArrayList<>();
+        buses.add(new Bus(1111));
+        buses.add(new Bus(2222));
+
+        SmartPassenger sp = new SmartPassenger("Пупкин", 50, 90);
+
+        sp.stepInto(buses.get(0));
+        sp.stepInto(buses.get(1));
+        System.out.println(buses);
+        //пересадка:
+        //sp.stepOut();
+        //sp.stepInto(buses.get(1));
+        sp.transitTo(buses.get(1));
+        System.out.println(buses);
+
+    }
+
+    private static void task1() {
         ArrayList<Bus> buses = new ArrayList<>();
         buses.add(new Bus(1111));
         buses.add(new Bus(2222));
